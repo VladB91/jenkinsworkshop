@@ -4,8 +4,6 @@
 echo "The two numbers:"
 echo $numberOne
 echo $numberTwo
-read numberOne
-read numberTwo
  
 # Input type of operation
 echo "Choices:"
@@ -13,7 +11,6 @@ echo "Addition"
 echo "Subtraction"
 echo "Multiplication"
 echo "Division"
-read $operation
  
 # Switch Case to perform
 # calculator operations
