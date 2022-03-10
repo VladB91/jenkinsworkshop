@@ -1,0 +1,50 @@
+pipeline {
+    parameters {
+      string defaultValue: 'defaultValue', name: 'Profile'
+    }
+    
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                sh 'echo ${Profile}'
+                sh 'echo "Added from snippet generator"'
+            }
+        }
+        
+        stage('Execute SH for main branch)
+        {
+            when {
+                branch 'main'
+            }
+            steps {
+                sh 'ls' 
+                sh 'chmod +x HelloWorld.sh'
+                sh './ExecuteMainBranch.sh'
+            }
+        }
+        
+        stage('Execute SH for other branches)
+        {
+            when {
+                not {
+                branch 'main'
+                }
+            }
+            steps {
+                sh 'ls' 
+                sh 'chmod +x HelloWorld.sh'
+                sh './ExecuteBranch.sh'
+            }
+        
+        stage('Clean WorkSpace')
+        {
+            steps {
+                cleanWs()
+            }
+        }
+        
+    }
+}
