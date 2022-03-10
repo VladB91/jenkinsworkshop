@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Print Profile') {
             steps {
+                set +x
                 sh 'echo Here is the profile selected for the current build: ${Profile}'
             }
         }
