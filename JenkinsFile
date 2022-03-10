@@ -30,7 +30,7 @@ pipeline {
         {
             when {
                 not {
-                branch 'main'
+                    branch 'main'
                 }
             }
             steps {
@@ -38,6 +38,7 @@ pipeline {
                 sh 'chmod +x ExecuteBranch.sh'
                 sh './ExecuteBranch.sh'
             }
+        }
         
         stage('Clean WorkSpace')
         {
