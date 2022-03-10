@@ -12,13 +12,18 @@ properties(
     ]
   ) 
    
-  stage('clone from repository'){
+  stage('Clone Repository'){
     checkout scm
   }
   
-  stage('Print Profile') {
+  stage('Print Profile Parameter') {
     sh 'echo Here is the profile selected for the current build: ${Profile}'
   }
+  
+  stage('Print env vars') {
+    sh "echo ${env.WORKSPACE}"
+  }
+
   
   stage('Print Files in Project')
   {
