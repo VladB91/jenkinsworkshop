@@ -1,0 +1,32 @@
+node('built-in'){
+ parameters {
+      choice(name: 'Profile', choices: ['default', 'second', 'third'], description: 'Profile example to be selected')
+      string defaultValue: '1', name: 'numberOne'
+      string defaultValue: '2', name: 'numberTwo'
+      choice(name: 'operation', choices: ['Addition', 'Subtraction', 'Multiplication', 'Division'], description: 'Operations for Calculator')
+  }
+   
+  stage('clone from repository'){
+    checkout scm
+  }
+  
+  stage('Print Profile') {
+    sh 'echo Here is the profile selected for the current build: ${Profile}'
+  }
+  
+  stage('Print Files in Project')
+  {
+    sh 'ls'
+  }
+  
+  stage('Calculator Operation')
+  {
+    sh 'chmod +x Calculator.sh'
+    sh './Calculator.sh $operation $numberOne $numberTwo'
+  }
+  
+  stage('Clean up')
+  {
+    cleanWs deleteDirs: true
+  }
+}
