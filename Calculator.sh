@@ -14,14 +14,19 @@ echo "Division"
  
 # Switch Case to perform
 # calculator operations
-case $operation in
-  1)res=`echo $numberOne + $numberTwo | bc`
-  ;;
-  2)res=`echo $numberOne - $numberTwo | bc`
-  ;;
-  3)res=`echo $numberOne \* $numberTwo | bc`
-  ;;
-  4)res=`echo "scale=2; $numberOne / $numberTwo" | bc`
-  ;;
-esac
+if [[ $operation -eq "Addition" ]]
+then
+  res=`echo $numberOne + $numberTwo | bc`
+elif [[ $operation -eq "Subtraction" ]]
+then
+  res=`echo $numberOne - $numberTwo | bc`
+elif [[ $operation -eq "Multiplication" ]]
+then
+  res=`echo $numberOne \* $numberTwo | bc`
+elif [[ $operation -eq "Division" ]]
+then
+  res=`echo "scale=2; $numberOne / $numberTwo" | bc`
+else
+  echo "Operation not valid."
+fi
 echo "Result : $res"
