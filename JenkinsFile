@@ -23,6 +23,7 @@ pipeline {
         
         stage('Calculator Operation') {
             steps {
+                sh 'chmod +x Calculator.sh'
                 sh './Calculator.sh $operation $numberOne $numberTwo'
             }
         }
