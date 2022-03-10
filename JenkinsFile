@@ -21,7 +21,7 @@ pipeline {
             }
             steps {
                 sh 'ls' 
-                sh 'chmod +x HelloWorld.sh'
+                sh 'chmod +x ExecuteMainBranch.sh'
                 sh './ExecuteMainBranch.sh'
             }
         }
@@ -35,7 +35,7 @@ pipeline {
             }
             steps {
                 sh 'ls' 
-                sh 'chmod +x HelloWorld.sh'
+                sh 'chmod +x ExecuteBranch.sh'
                 sh './ExecuteBranch.sh'
             }
         
