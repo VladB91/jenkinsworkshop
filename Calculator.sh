@@ -10,7 +10,7 @@ echo "Calculator operation selected: $operation"
   case "$operation" in
     ("Addition") res=`echo $numberOne + $numberTwo | bc` ;;
     ("Subtraction") res=`echo $numberOne - $numberTwo | bc` ;;
-    ("Multiplication") `res=echo $numberOne \* $numberTwo | bc` ;;
+    ("Multiplication") res=`echo $numberOne \* $numberTwo | bc` ;;
     ("Division") res=`echo "scale=2; $numberOne / $numberTwo" | bc` ;;
     (*) echo "$operation" ;;
   esac
