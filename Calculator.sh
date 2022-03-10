@@ -8,16 +8,16 @@ read numberOne
 read numberTwo
  
 # Input type of operation
-echo "Enter Choice :"
-echo "1. $Addition"
-echo "2. $Subtraction"
-echo "3. $Multiplication"
-echo "4. $Division"
-read ch
+echo "Choices:"
+echo "Addition"
+echo "Subtraction"
+echo "Multiplication"
+echo "Division"
+read $operation
  
 # Switch Case to perform
 # calculator operations
-case $ch in
+case $operation in
   1)res=`echo $numberOne + $numberTwo | bc`
   ;;
   2)res=`echo $numberOne - $numberTwo | bc`
