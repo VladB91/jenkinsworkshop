@@ -1,6 +1,10 @@
 pipeline {
     parameters {
       choice(name: 'Profile', choices: ['default', 'second', 'third'], description: 'Profile example to be selected')
+      string defaultValue: '1', name: 'numberOne'
+      string defaultValue: '2', name: 'numberTwo'
+      choice(name: 'Operation', choices: ['Addition', 'Subtraction', 'Multiplication', 'Division'], description: 'Operation for Calculator')
+      
     }
     
     agent any
@@ -15,6 +19,12 @@ pipeline {
         stage('Print Files in Project') {
             steps {
                 sh 'ls'
+            }
+        }
+        
+        stage('Caalculator Operation') {
+            steps {
+                sh './Calculator.sh ${params.Operation} ${params.numberOne} ${params.numberTwo}'
             }
         }
         
