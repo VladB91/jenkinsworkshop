@@ -10,13 +10,13 @@ echo "Calculator operation selected: $operation"
 if [[ $operation -eq "Addition" ]]
 then
   res=`echo $numberOne + $numberTwo | bc`
-elif [[ $operation -eq "Subtraction" ]]
+if [[ $operation -eq "Subtraction" ]]
 then
   res=`echo $numberOne - $numberTwo | bc`
-elif [[ $operation -eq "Multiplication" ]]
+if [[ $operation -eq "Multiplication" ]]
 then
   res=`echo $numberOne \* $numberTwo | bc`
-elif [[ $operation -eq "Division" ]]
+if [[ $operation -eq "Division" ]]
 then
   res=`echo "scale=2; $numberOne / $numberTwo" | bc`
 else
