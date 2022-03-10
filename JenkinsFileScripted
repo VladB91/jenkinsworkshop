@@ -36,6 +36,17 @@ properties(
     sh './Calculator.sh $operation $numberOne $numberTwo'
   }
   
+  stage('Print Different File based on Profile default')
+  {
+    when {
+            equals expected: 'default', actual: params.Profile
+   }
+    steps {
+        sh 'chmod +x ExecuteDefaultProfile.sh'
+        sh './ExecuteDefaultProfile.sh'
+    }
+  }
+  
   stage('Clean up')
   {
     cleanWs deleteDirs: true
