@@ -15,7 +15,7 @@ pipeline {
         stage('Execute SH based on default Profile')
         {
             when {
-            equals expected: 'default', actual: params.CHOICE
+            equals expected: 'default', actual: params.Profile
             }
             steps {
                 sh 'ls' 
@@ -27,7 +27,7 @@ pipeline {
         stage('Execute SH based on Second Profile')
         {
             when {
-                equals expected: 'second', actual: params.CHOICE
+                equals expected: 'second', actual: params.Profile
             }
             steps {
                 sh 'ls' 
@@ -39,7 +39,7 @@ pipeline {
         stage('Execute SH based on Third Profile')
         {
             when {
-                equals expected: 'third', actual: params.CHOICE
+                equals expected: 'third', actual: params.Profile
             }
             steps {
                 sh 'ls' 
