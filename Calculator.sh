@@ -1,18 +1,11 @@
 # !/bin/bash
  
-# Take user Input
-echo "The two numbers:"
-echo $numberOne
-echo $numberTwo
+# Numbers for operations
+echo "The two numbers selected in build are: $numberOne and $numberTwo"
  
-# Input type of operation
-echo "Choices:"
-echo "Addition"
-echo "Subtraction"
-echo "Multiplication"
-echo "Division"
+# Operation selected
+echo "Calculator operation selected: $operation"
  
-# Switch Case to perform
 # calculator operations
 if [[ $operation -eq "Addition" ]]
 then
@@ -29,4 +22,4 @@ then
 else
   echo "Operation not valid."
 fi
-echo "Result : $res"
+echo "Result of $operation: $res"
