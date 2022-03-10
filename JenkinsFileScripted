@@ -47,6 +47,8 @@ properties(
       } else if (params.Profile == 'third') {
         sh 'chmod +x ExecuteThirdProfile.sh'
         sh './ExecuteThirdProfile.sh'
+      } else {
+        sh 'echo Not the first 3 profile options selected. Profile selected params.Profile'
       }
   }
   
