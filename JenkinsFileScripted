@@ -36,7 +36,7 @@ properties(
     sh './Calculator.sh $operation $numberOne $numberTwo'
   }
   
-  stage('Print Different File based on Profile default')
+  stage('Print Different File based on Profile Value')
   {
       if (params.Profile == 'default') {
         sh 'chmod +x ExecuteDefaultProfile.sh'
