@@ -3,7 +3,7 @@ properties(
     [
       parameters (
         [
-            choice(name: 'Profile', choices: ['default', 'second', 'third'], description: 'Profile example to be selected'),
+            choice(name: 'Profile', choices: ['default', 'second', 'third', 'forth'], description: 'Profile example to be selected'),
             string(defaultValue: '1', name: 'numberOne'),
             string(defaultValue: '2', name: 'numberTwo'),
             choice(name: 'operation', choices: ['Addition', 'Subtraction', 'Multiplication', 'Division'], description: 'Operations for Calculator')
