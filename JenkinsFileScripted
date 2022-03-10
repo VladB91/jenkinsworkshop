@@ -38,13 +38,16 @@ properties(
   
   stage('Print Different File based on Profile default')
   {
-    when {
-            equals expected: 'default', actual: params.Profile
-   }
-    steps {
+      if (params.Profile == 'default') {
         sh 'chmod +x ExecuteDefaultProfile.sh'
         sh './ExecuteDefaultProfile.sh'
-    }
+      } else if (params.Profile == 'second') {
+        sh 'chmod +x ExecuteSecondProfile.sh'
+        sh './ExecuteSecondProfile.sh'
+      } else if (params.Profile == 'third') {
+        sh 'chmod +x ExecuteThirdProfile.sh'
+        sh './ExecuteThirdProfile.sh'
+      }
   }
   
   stage('Clean up')
