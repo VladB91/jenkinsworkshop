@@ -13,7 +13,7 @@ echo "Calculator operation selected: $operation"
     ("Multiplication") `res=echo $numberOne \* $numberTwo | bc` ;;
     ("Division") res=`echo "scale=2; $numberOne / $numberTwo" | bc` ;;
     (*) echo "$operation" ;;
-  esac)
+  esac
 # if [[ $operation -eq "Addition" ]]
 # then
 #   res=`echo $numberOne + $numberTwo | bc`
