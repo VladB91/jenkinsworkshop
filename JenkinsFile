@@ -15,7 +15,7 @@ pipeline {
         stage('Execute SH based on default Profile')
         {
             when {
-                ${params.CHOICE} 'default'
+                params.CHOICE 'default'
             }
             steps {
                 sh 'ls' 
@@ -27,7 +27,7 @@ pipeline {
         stage('Execute SH based on Second Profile')
         {
             when {
-                ${params.CHOICE} 'second'
+                params.CHOICE 'second'
             }
             steps {
                 sh 'ls' 
@@ -39,7 +39,7 @@ pipeline {
         stage('Execute SH based on Third Profile')
         {
             when {
-                ${params.CHOICE} 'third'
+                params.CHOICE 'third'
             }
             steps {
                 sh 'ls' 
