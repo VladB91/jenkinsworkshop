@@ -1,23 +1,21 @@
 pipeline {
     parameters {
-      string defaultValue: 'defaultValue', name: 'Profile'
+      choice(name: 'Profile', choices: ['default', 'second', 'third'], description: 'Profile example to be selected')
     }
     
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Print Profile') {
             steps {
-                echo 'Hello World'
                 sh 'echo ${Profile}'
-                sh 'echo "Added from snippet generator"'
             }
         }
         
-        stage('Execute SH for main branch')
+        stage('Execute SH based on default Profile')
         {
             when {
-                branch 'main'
+                ${params.CHOICE} 'default'
             }
             steps {
                 sh 'ls' 
@@ -26,16 +24,26 @@ pipeline {
             }
         }
         
-        stage('Execute SH for other branches')
+        stage('Execute SH based on Second Profile')
         {
             when {
-                not {
-                    branch 'main'
-                }
+                ${params.CHOICE} 'second'
             }
             steps {
                 sh 'ls' 
-                sh 'chmod +x ExecuteBranch.sh'
+                sh 'chmod +x ExecuteMainBranch.sh'
+                sh './ExecuteBranch.sh'
+            }
+        }
+        
+        stage('Execute SH based on Third Profile')
+        {
+            when {
+                ${params.CHOICE} 'third'
+            }
+            steps {
+                sh 'ls' 
+                sh 'chmod +x ExecuteMainBranch.sh'
                 sh './ExecuteBranch.sh'
             }
         }
