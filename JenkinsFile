@@ -12,13 +12,18 @@ pipeline {
             }
         }
         
+        stage('Print Files in Project') {
+            steps {
+                sh 'ls'
+            }
+        }
+        
         stage('Execute SH based on default Profile')
         {
             when {
             equals expected: 'default', actual: params.Profile
             }
             steps {
-                sh 'ls' 
                 sh 'chmod +x ExecuteDefaultProfile.sh'
                 sh './ExecuteDefaultProfile.sh'
             }
@@ -30,7 +35,6 @@ pipeline {
                 equals expected: 'second', actual: params.Profile
             }
             steps {
-                sh 'ls' 
                 sh 'chmod +x ExecuteSecondProfile.sh'
                 sh './ExecuteSecondProfile.sh'
             }
@@ -42,7 +46,6 @@ pipeline {
                 equals expected: 'third', actual: params.Profile
             }
             steps {
-                sh 'ls' 
                 sh 'chmod +x ExecuteThirdProfile.sh'
                 sh './ExecuteThirdProfile.sh'
             }
