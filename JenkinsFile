@@ -21,9 +21,9 @@ pipeline {
             }
         }
         
-        stage('Caalculator Operation') {
+        stage('Calculator Operation') {
             steps {
-                sh './Calculator.sh ${params.operation} ${params.numberOne} ${params.numberTwo}'
+                sh './Calculator.sh $operation $numberOne $numberTwo'
             }
         }
         
